@@ -8,15 +8,8 @@ app.get("/", (req, res) => {
 
 const port = process.env.PORT || 5000;
 
-db.sequelize
-  .authenticate()
-  .then(() => {
-    console.log("Connection OK");
-  })
-  .catch(err => {
-    console.log("Error:", err);
+db.sequelize.sync({ force: true }).then(async () => {
+  app.listen(port, () => {
+    console.log(`Listening on port:${port}`);
   });
-
-app.listen(port, () => {
-  console.log(`Listening on port:${port}`);
 });

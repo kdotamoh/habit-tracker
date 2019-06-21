@@ -9,8 +9,19 @@ const sequelize = new Sequelize(
   }
 );
 
+const models = {
+  User: sequelize.import("./User")
+};
+
+Object.keys(models).forEach(key => {
+  if ("associate" in models[key]) {
+    models[key].associate(models);
+  }
+})
+
 const db = {
-  sequelize
-}
+  sequelize,
+  models
+};
 
 module.exports = db;
