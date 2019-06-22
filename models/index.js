@@ -12,7 +12,7 @@ const sequelize = new Sequelize(
 const models = {
   User: sequelize.import("./User"),
   Routine: sequelize.import("./Routine"),
-  Habit: sequelize.import("./Habit")
+  Action: sequelize.import("./Action")
 };
 
 Object.keys(models).forEach(key => {

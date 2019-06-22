@@ -1,5 +1,5 @@
-const habit = (sequelize, DataTypes) => {
-  const Habit = sequelize.define("habit", {
+const action = (sequelize, DataTypes) => {
+  const Action = sequelize.define("action", {
     title: {
       type: DataTypes.STRING
     },
@@ -14,11 +14,11 @@ const habit = (sequelize, DataTypes) => {
     }
   });
 
-  Habit.associate = models => {
-    Habit.belongsTo(models.User);
+  Action.associate = models => {
+    Action.belongsTo(models.User);
   };
 
-  return Habit;
+  return Action;
 };
 
-module.exports = habit;
+module.exports = action;
