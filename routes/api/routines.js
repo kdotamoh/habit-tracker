@@ -15,7 +15,7 @@ router.post("/", async (req, res) => {
       description: body.title,
       userId: body.userId
     });
-    res.send(routine)
+    res.send(routine);
   } catch (err) {
     console.log(err);
   }

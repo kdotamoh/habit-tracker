@@ -11,14 +11,15 @@ const sequelize = new Sequelize(
 
 const models = {
   User: sequelize.import("./User"),
-  Routine: sequelize.import("./Routine")
+  Routine: sequelize.import("./Routine"),
+  Habit: sequelize.import("./Habit")
 };
 
 Object.keys(models).forEach(key => {
   if ("associate" in models[key]) {
     models[key].associate(models);
   }
-})
+});
 
 const db = {
   sequelize,
