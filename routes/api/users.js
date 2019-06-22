@@ -7,7 +7,7 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  let body = req.body;
+  let { body } = req;
 
   try {
     const user = await db.models.User.create({
