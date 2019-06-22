@@ -16,6 +16,11 @@ const action = (sequelize, DataTypes) => {
 
   Action.associate = models => {
     Action.belongsTo(models.User);
+    Action.belongsToMany(models.Routine, {
+      through: models.RoutineAction,
+      foreignKey: "actionId",
+      constraints: false
+    });
   };
 
   return Action;
