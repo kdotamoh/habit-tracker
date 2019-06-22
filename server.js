@@ -12,10 +12,44 @@ app.use(express.json());
 
 // Routes
 app.use("/api/users", require("./routes/api/users"));
+app.use("/api/routines", require("./routes/api/routines"));
+
+const createUserWithRoutine = async () => {
+  try {
+    await db.models.User.create(
+      {
+        firstName: "Rob",
+        lastName: "Pelinka",
+        email: "robbyrob@hmail.swag",
+        routines: [
+          {
+            title: "First",
+            description: "Lorem"
+          },
+          {
+            title: "Second",
+            description: "Ipsum"
+          }
+        ]
+      },
+      {
+        include: [db.models.Routine]
+      }
+    );
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 const port = process.env.PORT || 5000;
 
-db.sequelize.sync({ force: true }).then(async () => {
+const refreshDB = true;
+
+db.sequelize.sync({ force: refreshDB }).then(async () => {
+  if (refreshDB) {
+    createUserWithRoutine();
+  }
+
   app.listen(port, () => {
     console.log(`Listening on port:${port}`);
   });
