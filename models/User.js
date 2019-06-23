@@ -27,6 +27,7 @@ const user = (sequelize, DataType) => {
 
   User.associate = models => {
     User.hasMany(models.Routine, { onDelete: "CASCADE" });
+    User.hasMany(models.Action, { onDelete: "CASCADE" });
   };
 
   return User;
