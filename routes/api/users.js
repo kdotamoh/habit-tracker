@@ -22,4 +22,13 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req, res) => {
+  let { id } = req.params;
+  const user = await db.models.User.findByPk(id, {
+    include: [db.models.Routine]
+  });
+
+  res.send(user);
+});
+
 module.exports = router;
