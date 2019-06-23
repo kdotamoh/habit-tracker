@@ -24,7 +24,11 @@ const createUserWithRoutine = async () => {
         routines: [
           {
             title: "First",
-            description: "Lorem"
+            description: "Lorem",
+            startsAt: {
+              hh: 10,
+              mm: 30
+            }
           },
           {
             title: "Second",

@@ -7,10 +7,10 @@ const action = (sequelize, DataTypes) => {
       type: DataTypes.STRING
     },
     startsAt: {
-      type: DataTypes.DATE
+      type: DataTypes.JSON
     },
     endsAt: {
-      type: DataTypes.DATE
+      type: DataTypes.JSON
     }
   });
 

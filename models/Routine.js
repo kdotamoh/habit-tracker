@@ -9,7 +9,7 @@ const routine = (sequelize, DataType) => {
         type: DataType.STRING
       },
       startsAt: {
-        type: DataType.DATE
+        type: DataType.JSON
       }
     },
     {
