@@ -11,6 +11,14 @@ const action = (sequelize, DataTypes) => {
     },
     endsAt: {
       type: DataTypes.JSON
+    },
+    frequency: {
+      type: DataTypes.ENUM,
+      values: ["D", "W", "C"],
+      defaultValue: "D"
+    },
+    days: {
+      type: DataTypes.ARRAY(DataTypes.TEXT)
     }
   });
 

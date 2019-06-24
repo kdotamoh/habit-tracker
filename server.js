@@ -28,7 +28,9 @@ const createUserWithRoutine = async () => {
             startsAt: {
               hh: 10,
               mm: 30
-            }
+            },
+            frequency: "W",
+            days: ["M", "TU", "W", "TH", "F", "SA", "SU"]
           },
           {
             title: "Second",

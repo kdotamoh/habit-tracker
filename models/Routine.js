@@ -1,15 +1,23 @@
-const routine = (sequelize, DataType) => {
+const routine = (sequelize, DataTypes) => {
   const Routine = sequelize.define(
     "routine",
     {
       title: {
-        type: DataType.STRING
+        type: DataTypes.STRING
       },
       description: {
-        type: DataType.STRING
+        type: DataTypes.STRING
       },
       startsAt: {
-        type: DataType.JSON
+        type: DataTypes.JSON
+      },
+      frequency: {
+        type: DataTypes.ENUM,
+        values: ["D", "W", "C"],
+        defaultValue: "D"
+      },
+      days: {
+        type: DataTypes.ARRAY(DataTypes.TEXT)
       }
     },
     {
