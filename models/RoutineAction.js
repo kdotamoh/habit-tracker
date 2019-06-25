@@ -5,14 +5,14 @@ const routineAction = (sequelize, DataTypes) => {
       routineId: {
         type: DataTypes.INTEGER,
         references: {
-          model: "User",
+          model: "Routine",
           key: "id"
         }
       },
       actionId: {
         type: DataTypes.INTEGER,
         references: {
-          model: "User",
+          model: "Action",
           key: "id"
         }
       }
