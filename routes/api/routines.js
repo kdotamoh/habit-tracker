@@ -2,7 +2,14 @@ const router = require("express").Router();
 const db = require("../../models/index");
 
 router.get("/", async (req, res) => {
-  const routines = await db.models.Routine.findAll();
+  const routines = await db.models.Routine.findAll({
+    include: [
+      {
+        model: db.models.Action
+        // as: "action"
+      }
+    ]
+  });
   res.send(routines);
 });
 

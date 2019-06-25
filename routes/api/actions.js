@@ -15,18 +15,15 @@ router.post("/", async (req, res) => {
   let { body } = req;
 
   try {
-    await db.models.Action.create({
+    const action = await db.models.Action.create({
       title: body.title,
-      description: body.description,
-      startsAt: body.startsAt,
-      endsAt: body.endsAt,
-      frequency: body.frequency,
-      days: body.days
+      description: body.description
     });
-    res.send("Not implemented");
+    const routine = await db.models.Routine.findByPk(body.routineId);
+    await routine.addAction(action);
+    res.send(routine);
   } catch (err) {
-    console.error(err.message);
-    res.status(500).send("Server error");
+    res.status(500).send(err.message);
   }
 });
 
