@@ -29,8 +29,8 @@ const routine = (sequelize, DataTypes) => {
     Routine.belongsTo(models.User);
     Routine.belongsToMany(models.Action, {
       through: models.RoutineAction,
-      foreignKey: "routineId",
-      constraints: false
+      foreignKey: "routineId"
+      // constraints: false
     });
   };
 
