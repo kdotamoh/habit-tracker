@@ -13,6 +13,7 @@ app.use(express.json());
 // Routes
 app.use("/api/users", require("./routes/api/users"));
 app.use("/api/routines", require("./routes/api/routines"));
+app.use("/api/actions", require("./routes/api/actions"));
 
 const createUserWithRoutine = async () => {
   try {
