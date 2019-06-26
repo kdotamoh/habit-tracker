@@ -19,9 +19,12 @@ router.post("/", async (req, res) => {
       title: body.title,
       description: body.description
     });
-    const routine = await db.models.Routine.findByPk(body.routineId);
-    await routine.addAction(action);
-    res.send(routine);
+
+    if (body.routineId) {
+      const routine = await db.models.Routine.findByPk(body.routineId);
+      await routine.addAction(action);
+    }
+    res.send(action);
   } catch (err) {
     res.status(500).send(err.message);
   }
