@@ -1,20 +1,11 @@
 import React from "react";
+import { Text, View } from "react-native";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>Za Warudo</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <View>
+      <Text>Za warudo!</Text>
+    </View>
   );
 }
 
