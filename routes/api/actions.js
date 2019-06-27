@@ -41,6 +41,21 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+router.put("/:id", async (req, res) => {
+  const { id } = req.params;
+  const { body } = req;
+
+  try {
+    const action = await db.models.Action.findByPk(id);
+    await action.update(body);
+    // await console.log("Success");
+    res.send(action);
+    // res.send(action);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+});
+
 router.delete("/:id", async (req, res) => {
   const { id } = req.params;
 
